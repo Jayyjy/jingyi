@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Jing Yi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="work.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       FULL-PAGE PASSWORD GATE
+       The entire page is hidden behind this until JING is entered.
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="pw-gate" id="pwGate">
+    <div class="pw-gate-inner">
+      <svg class="lock-icon" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="11" rx="2"/>
+        <path d="M7 11V7a5 5 0 0110 0v4"/>
+        <circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none"/>
+      </svg>
+      <h1>Jing Yi's<br><em>Work</em></h1>
+      <p>This portfolio is password protected.<br>Enter the password to view.</p>
+      <input
+        type="password"
+        class="pw-input"
+        id="pwInput"
+        placeholder="Password"
+        autocomplete="off"
+        aria-label="Password"
+      />
+      <p class="pw-error" id="pwError" role="alert"></p>
+      <button class="pw-btn" id="pwSubmitBtn">Enter</button>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════════
+       PAGE CONTENT (hidden until unlocked)
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="page-content" id="pageContent">
+
+    <!-- ── NAV ── -->
+    <nav id="nav">
+      <a href="index.html" class="nav-name">Jing Yi</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="work.html" class="active">Work</a>
+      </div>
+    </nav>
+
+    <!-- ── PAGE HEADER ── -->
+    <header class="page-header">
+      <h1>Selected<br><em>Work</em></h1>
+      <p>Brand campaigns, content design, and creative projects for The Glasshouse specialty café.</p>
+    </header>
+
+    <!-- ── FILTER BAR ── -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="campaign">Campaign</button>
+      <button class="filter-btn" data-filter="content">Content</button>
+      <button class="filter-btn" data-filter="branding">Branding</button>
+      <button class="filter-btn" data-filter="video">Video</button>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         WORK GRID
+
+         HOW TO ADD A NEW PROJECT
+         ─────────────────────────
+         1. Copy the template block below.
+         2. Paste it before the closing </main> tag.
+         3. Update every data-* attribute and the thumbnail <img>.
+         4. Increment the id: project-5, project-6 …
+
+         DATA ATTRIBUTES
+         ───────────────
+         data-category  → "campaign" | "content" | "branding" | "video"
+         data-brand     → client / company name
+         data-title     → project title
+         data-desc      → 1–2 sentence description for the lightbox
+         data-tags      → comma-separated, e.g. "Print,Design,Social"
+
+         data-media is a JSON array — one item per asset:
+           Image → {"type":"image","src":"Assets/protected/file.png"}
+           Video → {"type":"video","src":"Assets/protected/file.MOV"}
+           PDF   → {"type":"pdf",  "src":"Assets/protected/file.pdf"}
+         Separate multiple items with commas inside the [ ] brackets.
+
+         FILE PATHS
+         ──────────
+         Public thumbnail  → Assets/public/photo.jpg
+         Protected asset   → Assets/protected/filename.ext
+         (Filenames with spaces work fine — keep them exactly as-is)
+
+         FEATURED (full-width) → add class="project-card featured reveal"
+         NORMAL  (half-width)  → class="project-card reveal"
+
+         ─────────────────────────────────────────────────────────────
+         TEMPLATE — copy from here:
+
+         <div id="project-N"
+              class="project-card reveal"
+              data-category="CATEGORY"
+              data-brand="Brand Name"
+              data-title="Project Title"
+              data-desc="Describe what you made and the impact it had."
+              data-tags="Tag1,Tag2,Tag3"
+              data-media='[{"type":"image","src":"Assets/protected/file.png"}]'>
+           <div class="project-thumb">
+             <img src="Assets/public/thumbnail.jpg" alt="Project Title" />
+           </div>
+           <div class="project-meta">
+             <span class="project-brand">Brand Name</span>
+             <div class="project-tags-row">
+               <span class="project-tag">Tag1</span>
+               <span class="project-tag">Tag2</span>
+             </div>
+           </div>
+           <p class="project-title">Project Title</p>
+           <p class="project-desc">Short description shown on the card.</p>
+         </div>
+
+         ════════════════════════════════════════════════════════════ -->
+
+    <main class="work-grid" id="workGrid">
+
+
+      <!-- ───────────────────────────────────────────────────────
+           PROJECT 1 — Table Talk Conversation Cards
+           Featured (full width). Thumbnail: DSC01069.jpg (public)
+           Assets: card PNG + video + PDF (all protected)
+           ─────────────────────────────────────────────────────── -->
+      <div id="project-1"
+           class="project-card featured reveal"
+           data-category="content"
+           data-brand="The Glasshouse"
+           data-title="Table Talk — Conversation Cards"
+           data-desc="A team project creating conversation starter cards to elevate the guest experience at The Glasshouse specialty café. Responsibilities included card copywriting, graphic design and print-ready mockups."
+           data-tags="Copywriting,Print Design,Mockup,Video"
+           data-media='[
+             {"type":"pdf",  "src":"Assets/protected/Table Talk - Conversation Card.pdf"}
+           ]'>
+        <div class="project-thumb">
+          <img src="Assets/protected/Table Talk.jpg" alt="Table Talk Conversation Cards — The Glasshouse" />
+        </div>
+        <div class="project-meta">
+          <span class="project-brand">The Glasshouse</span>
+          <div class="project-tags-row">
+            <span class="project-tag">Content</span>
+            <span class="project-tag">Print Design</span>
+            <span class="project-tag">Video</span>
+          </div>
+        </div>
+        <p class="project-title">Table Talk — Conversation Cards</p>
+        <p class="project-desc">Conversation starter cards designed to foster meaningful connection between guests at The Glasshouse specialty café.</p>
+      </div>
+
+
+      <!-- ───────────────────────────────────────────────────────
+           PROJECT 2 — Christmas Feast Campaign
+           Thumbnail: DSC02013.jpg (public). Asset: poster PDF
+           ─────────────────────────────────────────────────────── -->
+      <div id="project-2"
+           class="project-card reveal"
+           data-category="campaign"
+           data-brand="The Glasshouse"
+           data-title="Christmas Feast Bundle"
+           data-desc="Seasonal campaign for The Glasshouse's Christmas Feast Bundle. Designed an A5 poster ad for in-café display and digital use, balancing festive warmth with the café's signature refined aesthetic."
+           data-tags="Campaign,Poster Design,Seasonal,Print"
+           data-media='[
+             {"type":"pdf","src":"Assets/protected/Christmas Feast Bundle A5 Poster Ads.pdf"},
+             {"type":"image","src":"Assets/protected/Page 1 Post Card A6.png"}
+           ]'>
+        <div class="project-thumb">
+          <img src="Assets/protected/Page 1 Post Card A6.png" alt="Christmas Feast Bundle — The Glasshouse" />
+        </div>
+        <div class="project-meta">
+          <span class="project-brand">The Glasshouse</span>
+          <div class="project-tags-row">
+            <span class="project-tag">Campaign</span>
+            <span class="project-tag">Poster</span>
+          </div>
+        </div>
+        <p class="project-title">Christmas Feast Bundle</p>
+        <p class="project-desc">Festive A5 poster campaign for The Glasshouse's seasonal Christmas Feast Bundle offering.</p>
+      </div>
+
+
+      <!-- ───────────────────────────────────────────────────────
+           PROJECT 3 — Coffee Origin Story
+           Thumbnail: DSC02997.jpg (public)
+           Assets: coffee stat card PDF + Rwanda PDF + bag mockup PNG
+           ─────────────────────────────────────────────────────── -->
+      <div id="project-3"
+           class="project-card reveal"
+           data-category="branding"
+           data-brand="The Glasshouse"
+           data-title="Coffee Origin Profile"
+           data-desc="Educational content series showcasing The Glasshouse's specialty coffee sourcing. Designed a stat card highlighting coffee data, an origin story document for the Rwanda Nya bean, and packaging mockups for the Guatemala Las Nubes roast."
+           data-tags="Branding,Packaging,Copywriting,Coffee"
+           data-media='[
+             {"type":"pdf",  "src":"Assets/protected/Coffee Stat Card.pdf"},
+             {"type":"pdf",  "src":"Assets/protected/Rwanda, Nya.pdf"},
+             {"type":"image","src":"Assets/protected/GH_Coffee_Bag_Packaging_Mockup_For_Website_ESP_Guatemala_Las_Nubes.png"}
+           ]'>
+        <div class="project-thumb">
+          <img src="Assets/public/DSC02997.jpg" alt="Coffee Origin Story — The Glasshouse" />
+        </div>
+        <div class="project-meta">
+          <span class="project-brand">The Glasshouse</span>
+          <div class="project-tags-row">
+            <span class="project-tag">Branding</span>
+            <span class="project-tag">Packaging</span>
+          </div>
+        </div>
+        <p class="project-title">Coffee Origin Story</p>
+        <p class="project-desc">A content series telling the story behind The Glasshouse's specialty beans — from origin to cup.</p>
+      </div>
+
+
+      <!-- ───────────────────────────────────────────────────────
+           PROJECT 4 — Pastry & Menu Content
+           Thumbnail: DSC03044.jpg (public)
+           Assets: Artboard PDF + Pastry gif video
+           ─────────────────────────────────────────────────────── -->
+      <div id="project-4"
+           class="project-card reveal"
+           data-category="video"
+           data-brand="The Glasshouse"
+           data-title="Pastry &amp; Menu Content"
+           data-desc="Food and menu content created for The Glasshouse, including a motion graphic pastry gif for social media and a designed artboard for in-café or digital menu display."
+           data-tags="Video,Motion,Food Content,Social Media"
+           data-media='[
+             {"type":"video","src":"Assets/protected/Pastry gif.mov"},
+             {"type":"video","src":"Assets/protected/IMG_7920.MOV"},
+             {"type":"pdf",  "src":"Assets/protected/Artboard 4 copy 2_2.pdf"}
+           ]'>
+        <div class="project-thumb">
+          <img src="Assets/public/DSC03044.jpg" alt="Pastry and Menu Content — The Glasshouse" />
+        </div>
+        <div class="project-meta">
+          <span class="project-brand">The Glasshouse</span>
+          <div class="project-tags-row">
+            <span class="project-tag">Video</span>
+            <span class="project-tag">Content</span>
+          </div>
+        </div>
+        <p class="project-title">Pastry &amp; Menu Content</p>
+        <p class="project-desc">Motion and menu content for The Glasshouse — a pastry gif for social media and a designed menu artboard.</p>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════════════════════
+           ADD YOUR NEXT PROJECT BELOW THIS LINE.
+           Copy the template from the comment block above.
+           Increment the id → project-5, project-6 …
+           ═══════════════════════════════════════════════════════ -->
+
+
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <span class="foot-name">Jing Yi</span>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="mailto:goh.jingyi5@gmail.com">Email</a>
+      </div>
+      <span class="foot-copy">© 2026</span>
+    </footer>
+
+  </div><!-- end .page-content -->
+
+
+  <!-- ── LIGHTBOX MODAL ── -->
+  <div class="overlay" id="lightbox">
+    <div class="modal">
+      <button class="modal-close" id="lightboxClose" aria-label="Close">✕</button>
+      <div class="modal-media"    id="modalMedia"></div>
+      <div class="modal-body">
+        <p class="modal-brand"   id="modalBrand"></p>
+        <h2 class="modal-title"  id="modalTitle"></h2>
+        <p class="modal-desc"    id="modalDesc"></p>
+        <div class="modal-tags"  id="modalTags"></div>
+        <div class="modal-media-nav" id="modalMediaNav"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="work.js"></script>
+</body>
+</html>
